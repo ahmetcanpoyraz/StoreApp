@@ -1,19 +1,20 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { HomeScreen } from "../screens/bottom_navigator_screens/Home/HomeScreen";
 import ProfileScreen from "../screens/bottom_navigator_screens/Profile/ProfileScreen";
 import Icon from "react-native-vector-icons/Ionicons"; // Example: Using Ionicons
 import FavoritesScreen from "../screens/bottom_navigator_screens/Favorites/FavoritesScreen";
 import ShoppingCartScreen from "../screens/bottom_navigator_screens/ShoppingCart/ShoppingCartScreen";
+import HomeStackNavigator from "./HomeStack";
 
 const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
   return (
-    <Tab.Navigator screenOptions={{ headerShown: true }}>
+    <Tab.Navigator>
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={HomeStackNavigator}
         options={{
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Icon name="home" size={size} color={color} />
           ),
