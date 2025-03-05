@@ -4,6 +4,7 @@ import { Loading } from "../../../components/Loading";
 import { Error } from "../../../components/Error";
 import { Item } from "../../../domain/models/Item";
 import { API_ENDPOINTS } from "../../../constants/apiConstants";
+import { ItemCard } from "../../../components/ItemCard";
 
 export const HomeScreen = () => {
   const {
@@ -33,12 +34,7 @@ export const HomeScreen = () => {
       <FlatList
         data={posts}
         keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <View style={{ marginBottom: 16 }}>
-            <Text style={{ fontWeight: "bold" }}>{item.title}</Text>
-            <Text>{item.price}</Text>
-          </View>
-        )}
+        renderItem={({ item }) => <ItemCard item={item} />}
       />
     </View>
   );
