@@ -10,7 +10,7 @@ const FavoritesStackNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Root"
+        name="Favorites"
         component={FavoritesScreen}
         options={{ headerShown: true }}
       />
