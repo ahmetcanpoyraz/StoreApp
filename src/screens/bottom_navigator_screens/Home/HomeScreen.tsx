@@ -1,10 +1,11 @@
-import { FlatList, Text, View } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import { useApiData } from "../../../hooks/useApiData";
 import { Loading } from "../../../components/Loading";
 import { Error } from "../../../components/Error";
 import { Item } from "../../../domain/models/Item";
 import { API_ENDPOINTS } from "../../../constants/apiConstants";
 import { ItemCard } from "../../../components/ItemCard";
+import { GlobalStateHandler } from "../../../components/GlobalStateHandler";
 
 export const HomeScreen = () => {
   const {
@@ -26,16 +27,22 @@ export const HomeScreen = () => {
 
   //if (getLoading || postLoading) return <Loading />;
   // if (postError) return <Error error={postError} />;
-  if (getLoading) return <Loading />;
-  if (getError) return <Error error={getError} />;
 
   return (
-    <View style={{ flex: 1, padding: 16 }}>
+    <GlobalStateHandler data={posts} loading={getLoading} error={getError}>
       <FlatList
+        style={styles.flatListStyle}
         data={posts}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => <ItemCard item={item} />}
       />
-    </View>
+    </GlobalStateHandler>
   );
 };
+
+const styles = StyleSheet.create({
+  flatListStyle: {
+    marginHorizontal: 20,
+    marginVertical: 10,
+  },
+});

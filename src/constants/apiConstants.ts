@@ -8,4 +8,4 @@ export const API_ENDPOINTS = {
 } as const;
 
 // Endpoint tipleri (TypeScript’in literal tiplerle çalışması için)
-export type ApiEndpoint = (typeof API_ENDPOINTS)[keyof typeof API_ENDPOINTS];
+export type ApiEndpoint = string; // Önceden: (typeof API_ENDPOINTS)[keyof typeof API_ENDPOINTS]

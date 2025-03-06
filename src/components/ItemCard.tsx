@@ -43,7 +43,7 @@ export function ItemCard({ item }: ItemCardProps) {
   return (
     <TouchableOpacity
       style={styles.card}
-      onPress={() => navigation.navigate("ItemDetail", { itemId: item.id })}
+      onPress={() => navigation.navigate("ItemDetail", { item: item })}
     >
       <Image source={{ uri: item.image }} style={styles.image} />
       <View style={styles.textContainer}>

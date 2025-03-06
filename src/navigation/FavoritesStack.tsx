@@ -1,18 +1,18 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { HomeScreen } from "../screens/bottom_navigator_screens/Home/HomeScreen";
 import ItemDetailScreen from "../screens/bottom_navigator_screens/Home/ItemDetail/ItemDetailScreen";
 import { RootStackParamList } from "./types";
+import FavoritesScreen from "../screens/bottom_navigator_screens/Favorites/FavoritesScreen";
 
 const Stack = createNativeStackNavigator<RootStackParamList>(); // Tipi burada belirt
 
-const HomeStackNavigator = () => {
+const FavoritesStackNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
         name="Root"
-        component={HomeScreen}
-        options={{ headerShown: false }}
+        component={FavoritesScreen}
+        options={{ headerShown: true }}
       />
       <Stack.Screen
         name="ItemDetail"
@@ -23,4 +23,4 @@ const HomeStackNavigator = () => {
   );
 };
 
-export default HomeStackNavigator;
+export default FavoritesStackNavigator;
